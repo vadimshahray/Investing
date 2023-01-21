@@ -1,10 +1,11 @@
 import React from 'react'
-import { useScreenTitle } from '@hooks'
 import { ScreenContent } from '@components'
 import { CurrencyServiceSwitch } from './CurrencyServiceSwitch'
+import { useCurrencyTogglerHeaderRight, useScreenTitle } from '@hooks'
 
 export const CurrencyTogglerScreen = () => {
-  useScreenTitle('Главная')
+  useScreenTitle('Investing')
+  useCurrencyTogglerHeaderRight()
 
   return (
     <ScreenContent>

@@ -1,5 +1,6 @@
 type RootStackParamList = {
   CurrencyTogglerScreen: undefined
+  SettingsScreen: undefined
 }
 
 type AppNavigation =

@@ -1,9 +1,9 @@
 import React from 'react'
 import { Appbar } from '@components'
 import { DefaultTheme } from '@styles'
-import { CurrencyTogglerScreen } from '@screens'
 import { ThemeProvider } from 'react-native-paper'
 import { NavigationContainer } from '@react-navigation/native'
+import { CurrencyTogglerScreen, SettingsScreen } from '@screens'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 
@@ -26,6 +26,8 @@ export default () => {
               name='CurrencyTogglerScreen'
               component={CurrencyTogglerScreen}
             />
+
+            <Screen name='SettingsScreen' component={SettingsScreen} />
           </Navigator>
         </NavigationContainer>
       </ThemeProvider>
