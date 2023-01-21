@@ -15,7 +15,7 @@ export default () => {
       <ThemeProvider theme={DefaultTheme}>
         <NavigationContainer theme={DefaultTheme}>
           <Navigator
-            initialRouteName='CurrencyTogglerScreen'
+            initialRouteName='RatesTogglerScreen'
             screenOptions={{
               header: Appbar,
               statusBarStyle: 'dark',
