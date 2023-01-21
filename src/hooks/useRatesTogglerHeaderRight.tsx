@@ -2,7 +2,7 @@ import { useNavigation } from '@hooks'
 import React, { useEffect } from 'react'
 import { Appbar } from 'react-native-paper'
 
-export const useCurrencyTogglerHeaderRight = () => {
+export const useRatesTogglerHeaderRight = () => {
   const { navigate, setOptions } = useNavigation()
 
   useEffect(() => {

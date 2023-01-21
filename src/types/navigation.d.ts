@@ -1,5 +1,5 @@
 type RootStackParamList = {
-  CurrencyTogglerScreen: undefined
+  RatesTogglerScreen: undefined
   SettingsScreen: undefined
 }
 
