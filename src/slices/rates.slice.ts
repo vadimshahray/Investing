@@ -1,10 +1,11 @@
+import { defaultTrackedRates } from '@utils'
 import { createSlice } from '@reduxjs/toolkit'
 import { RatesSlice, RatesSliceState } from '@types'
 
 export const ratesSlice = createSlice<RatesSliceState, RatesSlice>({
   name: 'rates',
   initialState: {
-    rates: [],
+    rates: defaultTrackedRates,
   },
   reducers: {
     addRate: (state, { payload }) => {
