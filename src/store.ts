@@ -1,5 +1,5 @@
+import { ratesSlice, ratesTrackerSlice } from '@slices'
 import { persistStore, persistReducer } from 'redux-persist'
-import { ratesTrackerSlice } from './slices/ratesTracker.slice'
 import { combineReducers, configureStore } from '@reduxjs/toolkit'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 
@@ -9,6 +9,7 @@ const persistConfig = {
 }
 
 const rootReducer = combineReducers({
+  rates: ratesSlice.reducer,
   ratesTracker: ratesTrackerSlice.reducer,
 })
 
