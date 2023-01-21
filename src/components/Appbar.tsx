@@ -1,14 +1,19 @@
 import React from 'react'
 import { Appbar as PaperAppbar } from 'react-native-paper'
+import { NativeStackHeaderProps } from '@react-navigation/native-stack'
 
-type Props = {
-  title: string
-}
-
-export const Appbar = ({ title }: Props) => {
+export const Appbar = ({
+  navigation,
+  back,
+  options,
+}: NativeStackHeaderProps) => {
   return (
     <PaperAppbar.Header>
-      <PaperAppbar.Content title={title} />
+      {back && <PaperAppbar.BackAction onPress={navigation.goBack} />}
+
+      <PaperAppbar.Content title={options.title} />
+
+      {options.headerRight?.({ canGoBack: true })}
     </PaperAppbar.Header>
   )
 }

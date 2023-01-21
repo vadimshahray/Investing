@@ -8,7 +8,9 @@ module.exports = {
         extensions: ['.ios.js', '.android.js', '.js', '.ts', '.tsx', '.json'],
         alias: {
           '@components': './src/components',
+          '@hooks': './src/hooks',
           '@screens': './src/screens',
+          '@styles': './src/styles',
         },
       },
     ],

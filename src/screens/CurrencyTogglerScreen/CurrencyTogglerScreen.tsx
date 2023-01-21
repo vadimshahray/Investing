@@ -1,15 +1,14 @@
 import React from 'react'
-import { Appbar, ScreenContent } from '@components'
+import { useScreenTitle } from '@hooks'
+import { ScreenContent } from '@components'
 import { CurrencyServiceSwitch } from './CurrencyServiceSwitch'
 
 export const CurrencyTogglerScreen = () => {
-  return (
-    <>
-      <Appbar title='Главная' />
+  useScreenTitle('Главная')
 
-      <ScreenContent>
-        <CurrencyServiceSwitch />
-      </ScreenContent>
-    </>
+  return (
+    <ScreenContent>
+      <CurrencyServiceSwitch />
+    </ScreenContent>
   )
 }
