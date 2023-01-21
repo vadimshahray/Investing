@@ -1,10 +1,19 @@
-import { configureStore } from '@reduxjs/toolkit'
+import { persistStore, persistReducer } from 'redux-persist'
 import { ratesTrackerSlice } from './slices/ratesTracker.slice'
+import { combineReducers, configureStore } from '@reduxjs/toolkit'
+import AsyncStorage from '@react-native-async-storage/async-storage'
+
+const persistConfig = {
+  key: 'root',
+  storage: AsyncStorage,
+}
+
+const rootReducer = combineReducers({
+  ratesTracker: ratesTrackerSlice.reducer,
+})
 
 export const store = configureStore({
-  reducer: {
-    ratesTracker: ratesTrackerSlice.reducer,
-  },
+  reducer: persistReducer(persistConfig, rootReducer),
   middleware: (getDefaultMiddleware) => {
     return getDefaultMiddleware({
       immutableCheck: false,
@@ -12,3 +21,5 @@ export const store = configureStore({
     })
   },
 })
+
+export const persistor = persistStore(store)
