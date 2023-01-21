@@ -3,7 +3,7 @@ import { store } from './store'
 import { Appbar } from '@components'
 import { DefaultTheme } from '@styles'
 import { Provider as ReduxProvider } from 'react-redux'
-import { RatesTogglerScreen, SettingsScreen } from '@screens'
+import { RatesTrackerScreen, SettingsScreen } from '@screens'
 import { Provider as PaperProvider } from 'react-native-paper'
 import { NavigationContainer } from '@react-navigation/native'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
@@ -18,7 +18,7 @@ export default () => {
         <PaperProvider theme={DefaultTheme}>
           <NavigationContainer theme={DefaultTheme}>
             <Navigator
-              initialRouteName='RatesTogglerScreen'
+              initialRouteName='RatesTrackerScreen'
               screenOptions={{
                 header: Appbar,
                 statusBarStyle: 'dark',
@@ -26,8 +26,8 @@ export default () => {
               }}
             >
               <Screen
-                name='RatesTogglerScreen'
-                component={RatesTogglerScreen}
+                name='RatesTrackerScreen'
+                component={RatesTrackerScreen}
               />
 
               <Screen name='SettingsScreen' component={SettingsScreen} />

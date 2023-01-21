@@ -1,5 +1,5 @@
 type RootStackParamList = {
-  RatesTogglerScreen: undefined
+  RatesTrackerScreen: undefined
   SettingsScreen: undefined
 }
 

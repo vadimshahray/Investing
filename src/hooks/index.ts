@@ -1,3 +1,3 @@
 export * from './useNavigation'
 export * from './useScreenTitle'
-export * from './useRatesTogglerHeaderRight'
+export * from './useRatesTrackerHeaderRight'
