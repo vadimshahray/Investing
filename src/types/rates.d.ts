@@ -1,0 +1,11 @@
+type DefaultTrackedRates =
+  | 'usd/kzt'
+  | 'usd/rub'
+  | 'eur/usd'
+  | 'eur/kzt'
+  | 'rub/kzt'
+  | 'gbp/usd'
+  | 'gbp/kzt'
+  | 'dollar'
+  | 'spx'
+  | 'brent'
