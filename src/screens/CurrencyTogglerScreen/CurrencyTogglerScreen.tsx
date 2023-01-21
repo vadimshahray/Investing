@@ -1,6 +1,6 @@
 import React from 'react'
-import { Button } from 'react-native-paper'
 import { Appbar, ScreenContent } from '@components'
+import { CurrencyServiceSwitch } from './CurrencyServiceSwitch'
 
 export const CurrencyTogglerScreen = () => {
   return (
@@ -8,7 +8,7 @@ export const CurrencyTogglerScreen = () => {
       <Appbar title='Главная' />
 
       <ScreenContent>
-        <Button>Button</Button>
+        <CurrencyServiceSwitch />
       </ScreenContent>
     </>
   )
