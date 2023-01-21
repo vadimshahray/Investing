@@ -1,9 +1,11 @@
 import React from 'react'
+import { store } from './store'
 import { Appbar } from '@components'
 import { DefaultTheme } from '@styles'
-import { ThemeProvider } from 'react-native-paper'
-import { NavigationContainer } from '@react-navigation/native'
+import { Provider as ReduxProvider } from 'react-redux'
 import { RatesTogglerScreen, SettingsScreen } from '@screens'
+import { Provider as PaperProvider } from 'react-native-paper'
+import { NavigationContainer } from '@react-navigation/native'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 
@@ -11,26 +13,28 @@ const { Navigator, Screen } = createNativeStackNavigator<RootStackParamList>()
 
 export default () => {
   return (
-    <SafeAreaProvider>
-      <ThemeProvider theme={DefaultTheme}>
-        <NavigationContainer theme={DefaultTheme}>
-          <Navigator
-            initialRouteName='RatesTogglerScreen'
-            screenOptions={{
-              header: Appbar,
-              statusBarStyle: 'dark',
-              statusBarColor: DefaultTheme.colors.background,
-            }}
-          >
-            <Screen
-              name='CurrencyTogglerScreen'
-              component={RatesTogglerScreen}
-            />
+    <ReduxProvider store={store}>
+      <SafeAreaProvider>
+        <PaperProvider theme={DefaultTheme}>
+          <NavigationContainer theme={DefaultTheme}>
+            <Navigator
+              initialRouteName='RatesTogglerScreen'
+              screenOptions={{
+                header: Appbar,
+                statusBarStyle: 'dark',
+                statusBarColor: DefaultTheme.colors.background,
+              }}
+            >
+              <Screen
+                name='RatesTogglerScreen'
+                component={RatesTogglerScreen}
+              />
 
-            <Screen name='SettingsScreen' component={SettingsScreen} />
-          </Navigator>
-        </NavigationContainer>
-      </ThemeProvider>
-    </SafeAreaProvider>
+              <Screen name='SettingsScreen' component={SettingsScreen} />
+            </Navigator>
+          </NavigationContainer>
+        </PaperProvider>
+      </SafeAreaProvider>
+    </ReduxProvider>
   )
 }
