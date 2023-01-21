@@ -14,6 +14,7 @@ module.exports = {
           '@slices': './src/slices',
           '@styles': './src/styles',
           '@types': './src/types',
+          '@utils': './src/utils',
         },
       },
     ],
