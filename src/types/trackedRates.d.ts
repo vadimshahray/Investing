@@ -4,4 +4,6 @@ type TrackedRate = {
   name: string
   url: string
   tag: string
+
+  isTracking: boolean
 }

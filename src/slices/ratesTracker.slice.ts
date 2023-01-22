@@ -1,3 +1,4 @@
+import { defaultTrackedRates } from '@utils'
 import { createSlice } from '@reduxjs/toolkit'
 import { RatesTrackerSlice, RatesTrackerSliceState } from '@types'
 
@@ -9,22 +10,47 @@ export const ratesTrackerSlice = createSlice<
   initialState: {
     isTracking: false,
 
-    trackedRates: [],
+    rates: defaultTrackedRates,
   },
   reducers: {
     setIsTracking: (state, { payload }) => {
       state.isTracking = payload
     },
 
-    addTrackedRate: (state, { payload }) => {
-      state.trackedRates.push(payload)
+    addRate: (state, { payload }) => {
+      state.rates.push(payload)
     },
 
-    removeTrackedRate: (state, { payload }) => {
-      state.trackedRates.splice(payload, 1)
+    updateRate: (state, { payload }) => {
+      const i = state.rates.findIndex((r) => r.id === payload.id)
+
+      if (i !== -1) {
+        state.rates.splice(i, 1, payload)
+      }
+    },
+
+    removeRate: (state, { payload }) => {
+      const i = state.rates.findIndex((r) => r.id === payload)
+
+      if (i !== -1) {
+        state.rates.splice(i, 1)
+      }
+    },
+
+    setRateIsTracking: (state, { payload }) => {
+      const i = state.rates.findIndex((r) => r.id === payload.id)
+
+      if (i !== -1) {
+        state.rates[i].isTracking = payload.isTracking
+      }
     },
   },
 })
 
-export const { setIsTracking, addTrackedRate, removeTrackedRate } =
-  ratesTrackerSlice.actions
+export const {
+  addRate,
+  updateRate,
+  removeRate,
+  setIsTracking,
+  setRateIsTracking,
+} = ratesTrackerSlice.actions

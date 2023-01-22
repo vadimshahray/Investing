@@ -3,7 +3,7 @@ import { PayloadAction, SliceCaseReducer } from '@reduxjs/toolkit'
 export type RatesTrackerSliceState = {
   isTracking: boolean
 
-  trackedRates: TrackedRate[]
+  rates: TrackedRate[]
 }
 
 export interface RatesTrackerSlice
@@ -13,13 +13,23 @@ export interface RatesTrackerSlice
     action: PayloadAction<boolean>,
   ) => void
 
-  addTrackedRate: (
+  addRate: (
     state: RatesTrackerSliceState,
     action: PayloadAction<TrackedRate>,
   ) => void
 
-  removeTrackedRate: (
+  updateRate: (
+    state: RatesTrackerSliceState,
+    action: PayloadAction<TrackedRate>,
+  ) => void
+
+  removeRate: (
     state: RatesTrackerSliceState,
     action: PayloadAction<number>,
+  ) => void
+
+  setRateIsTracking: (
+    state: RatesTrackerSliceState,
+    action: PayloadAction<{ id: number; isTracking: boolean }>,
   ) => void
 }

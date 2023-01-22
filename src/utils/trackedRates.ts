@@ -59,4 +59,4 @@ export const defaultTrackedRates: TrackedRate[] = [
     url: 'https://ru.investing.com/commodities/brent-oil',
     tag: '<span class="text-2xl" data-test="instrument-price-last">',
   },
-]
+].map((r) => ({ ...r, isTracking: true }))
