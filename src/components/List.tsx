@@ -6,6 +6,7 @@ import {
   FlatListProps,
   ListRenderItem,
   ListRenderItemInfo,
+  StyleSheet,
 } from 'react-native'
 
 const windowHeight = Dimensions.get('window').height
@@ -57,6 +58,16 @@ export const List = <T,>({
       getItemLayout={getItemLayout}
       {...props}
       renderItem={renderWrappedItem}
+      contentContainerStyle={props.data.length ? undefined : styles.emptyList}
     />
   )
 }
+
+const styles = StyleSheet.create({
+  emptyList: {
+    flex: 1,
+
+    alignContent: 'center',
+    justifyContent: 'center',
+  },
+})
