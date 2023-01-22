@@ -1,8 +1,9 @@
-import { List } from '@components'
 import { selectRates } from '@selectors'
 import { useSelector } from 'react-redux'
 import React, { useCallback } from 'react'
+import { EmptyContent, List } from '@components'
 import { ListRenderItemInfo } from 'react-native'
+import EmptyList from '@assets/empty_rates_list.svg'
 import { TrackedRateItem, TRACKED_RATE_ITEM_H } from './TrackedRateItem'
 
 export const TrackedRatesList = () => {
@@ -26,6 +27,9 @@ export const TrackedRatesList = () => {
       renderItem={renderItem}
       keyExtractor={keyExtractor}
       itemHeight={TRACKED_RATE_ITEM_H}
+      ListEmptyComponent={
+        <EmptyContent text='Здесь ничего нет' Image={EmptyList} />
+      }
     />
   )
 }
