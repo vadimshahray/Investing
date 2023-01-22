@@ -1,5 +1,4 @@
 import React from 'react'
-import { SCREEN_PADDING_V, LIST_ITEM_MARGIN_V } from '@components'
 import {
   FlatList,
   Dimensions,
@@ -37,18 +36,15 @@ export const List = <T,>({
       initialNumToRender={initialNumToRender}
       getItemLayout={getItemLayout}
       numColumns={numColumns}
-      style={styles.list}
       {...props}
-      contentContainerStyle={
-        props.data.length ? props.contentContainerStyle : styles.emptyList
-      }
+      contentContainerStyle={props.data.length ? styles.list : styles.emptyList}
     />
   )
 }
 
 const styles = StyleSheet.create({
   list: {
-    paddingVertical: SCREEN_PADDING_V - LIST_ITEM_MARGIN_V,
+    paddingVertical: 10,
   },
 
   emptyList: {
