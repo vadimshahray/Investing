@@ -1,5 +1,6 @@
 import React from 'react'
 import { ScreenContent } from '@components'
+import { TrackedRatesList } from './TrackedRatesList'
 import { RatesTrackerSwitch } from './RatesTrackerSwitch'
 import { useRatesTrackerHeaderRight, useScreenTitle } from '@hooks'
 
@@ -8,7 +9,9 @@ export const RatesTrackerScreen = () => {
   useRatesTrackerHeaderRight()
 
   return (
-    <ScreenContent>
+    <ScreenContent noScroll>
+      <TrackedRatesList />
+
       <RatesTrackerSwitch />
     </ScreenContent>
   )
