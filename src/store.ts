@@ -13,8 +13,10 @@ const rootReducer = combineReducers({
   ratesTracker: ratesTrackerSlice.reducer,
 })
 
+const persistedReducer = persistReducer(persistConfig, rootReducer)
+
 export const store = configureStore({
-  reducer: persistReducer(persistConfig, rootReducer),
+  reducer: persistedReducer,
   middleware: (getDefaultMiddleware) => {
     return getDefaultMiddleware({
       immutableCheck: false,
