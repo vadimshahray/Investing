@@ -16,8 +16,10 @@ export const ListItemWrapper = ({
   children,
 }: ListItemWrapperProps) => {
   return (
-    <Surface style={[styles.surface, style]}>
-      <TouchableRipple onPress={onPress}>{children}</TouchableRipple>
+    <Surface style={[styles.surface, style]} elevation={0}>
+      <TouchableRipple style={styles.ripple} onPress={onPress}>
+        {children}
+      </TouchableRipple>
     </Surface>
   )
 }
@@ -26,11 +28,15 @@ const styles = StyleSheet.create({
   surface: {
     flex: 1,
 
-    padding: 12,
-
     marginVertical: LIST_ITEM_MARGIN_V,
     marginHorizontal: SCREEN_PADDING_H,
 
     borderRadius: 8,
+
+    overflow: 'hidden',
+  },
+
+  ripple: {
+    padding: 12,
   },
 })
