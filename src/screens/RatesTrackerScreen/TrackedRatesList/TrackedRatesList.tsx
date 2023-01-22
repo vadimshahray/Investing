@@ -1,4 +1,6 @@
+import { addRate, setRateIsTracking } from '@slices'
 import { twoParts } from '@utils'
+import { useDispatch } from '@hooks'
 import { selectRates } from '@selectors'
 import { useSelector } from 'react-redux'
 import React, { useCallback } from 'react'
@@ -8,6 +10,8 @@ import EmptyList from '@assets/empty_rates_list.svg'
 import { TrackedRateItem, TRACKED_RATE_ITEM_H } from './TrackedRateItem'
 
 export const TrackedRatesList = () => {
+  const dispatch = useDispatch()
+
   const rates = useSelector(selectRates)
 
   const keyExtractor = useCallback(
@@ -15,13 +19,26 @@ export const TrackedRatesList = () => {
     [],
   )
 
+  const switchRateTracking = useCallback(
+    (rate: TrackedRate) => {
+      dispatch(setRateIsTracking({ id: rate.id, isTracking: !rate.isTracking }))
+    },
+    [dispatch],
+  )
+
   const renderItem = useCallback(
     ({ item, index }: ListRenderItemInfo<TrackedRate>) => {
       const style = index % 2 ? twoParts.right : twoParts.left
 
-      return <TrackedRateItem rateName={item.name} style={style} />
+      return (
+        <TrackedRateItem
+          rate={item}
+          style={style}
+          onPress={() => switchRateTracking(item)}
+        />
+      )
     },
-    [],
+    [switchRateTracking],
   )
 
   return (
