@@ -7,6 +7,9 @@ export type ScreenContentProps = {
   noPadding?: boolean
 } & PropsWithChildren
 
+export const SCREEN_PADDING_H = 16
+export const SCREEN_PADDING_V = 13
+
 export const ScreenContent = ({
   noScroll = false,
   noPadding = false,
@@ -14,8 +17,8 @@ export const ScreenContent = ({
 }: ScreenContentProps) => {
   const insets = useSafeAreaInsets()
 
-  const paddingH = noPadding ? 0 : 16
-  const paddingV = noPadding ? 0 : 13
+  const paddingH = noPadding ? 0 : SCREEN_PADDING_H
+  const paddingV = noPadding ? 0 : SCREEN_PADDING_V
 
   const Container = noScroll ? View : ScrollView
 

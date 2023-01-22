@@ -9,7 +9,7 @@ export const RatesTrackerScreen = () => {
   useRatesTrackerHeaderRight()
 
   return (
-    <ScreenContent noScroll>
+    <ScreenContent noScroll noPadding>
       <TrackedRatesList />
 
       <RatesTrackerSwitch />
