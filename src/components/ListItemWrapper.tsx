@@ -26,8 +26,6 @@ export const ListItemWrapper = ({
 
 const styles = StyleSheet.create({
   surface: {
-    flex: 1,
-
     marginVertical: LIST_ITEM_MARGIN_V,
     marginHorizontal: SCREEN_PADDING_H,
 
