@@ -1,3 +1,4 @@
+import { twoParts } from '@utils'
 import { selectRates } from '@selectors'
 import { useSelector } from 'react-redux'
 import React, { useCallback } from 'react'
@@ -15,9 +16,11 @@ export const TrackedRatesList = () => {
   )
 
   const renderItem = useCallback(
-    ({ item }: ListRenderItemInfo<TrackedRate>) => {
+    ({ item, index }: ListRenderItemInfo<TrackedRate>) => {
+      const style = index % 2 ? twoParts.right : twoParts.left
+
       return (
-        <ListItemWrapper>
+        <ListItemWrapper style={style}>
           <TrackedRateItem rateName={item.name} />
         </ListItemWrapper>
       )
@@ -31,6 +34,7 @@ export const TrackedRatesList = () => {
       renderItem={renderItem}
       keyExtractor={keyExtractor}
       itemHeight={TRACKED_RATE_ITEM_H}
+      numColumns={2}
       ListEmptyComponent={
         <EmptyContent text='Здесь ничего нет' Image={EmptyList} />
       }
