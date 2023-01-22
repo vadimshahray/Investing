@@ -1,12 +1,14 @@
 import React, { PropsWithChildren } from 'react'
-import { StyleSheet, ScrollView } from 'react-native'
+import { StyleSheet, ScrollView, View } from 'react-native'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 
 export type ScreenContentProps = {
+  noScroll?: boolean
   noPadding?: boolean
 } & PropsWithChildren
 
 export const ScreenContent = ({
+  noScroll = false,
   noPadding = false,
   children,
 }: ScreenContentProps) => {
@@ -15,8 +17,10 @@ export const ScreenContent = ({
   const paddingH = noPadding ? 0 : 16
   const paddingV = noPadding ? 0 : 13
 
+  const Container = noScroll ? View : ScrollView
+
   return (
-    <ScrollView
+    <Container
       style={[
         {
           paddingTop: insets.top + paddingV,
@@ -28,7 +32,7 @@ export const ScreenContent = ({
       ]}
     >
       {children}
-    </ScrollView>
+    </Container>
   )
 }
 
