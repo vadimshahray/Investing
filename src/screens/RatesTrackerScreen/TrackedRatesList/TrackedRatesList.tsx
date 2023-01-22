@@ -2,9 +2,9 @@ import { twoParts } from '@utils'
 import { selectRates } from '@selectors'
 import { useSelector } from 'react-redux'
 import React, { useCallback } from 'react'
+import { EmptyContent, List } from '@components'
 import { ListRenderItemInfo } from 'react-native'
 import EmptyList from '@assets/empty_rates_list.svg'
-import { EmptyContent, List, ListItemWrapper } from '@components'
 import { TrackedRateItem, TRACKED_RATE_ITEM_H } from './TrackedRateItem'
 
 export const TrackedRatesList = () => {
@@ -19,11 +19,7 @@ export const TrackedRatesList = () => {
     ({ item, index }: ListRenderItemInfo<TrackedRate>) => {
       const style = index % 2 ? twoParts.right : twoParts.left
 
-      return (
-        <ListItemWrapper style={style}>
-          <TrackedRateItem rateName={item.name} />
-        </ListItemWrapper>
-      )
+      return <TrackedRateItem rateName={item.name} style={style} />
     },
     [],
   )
