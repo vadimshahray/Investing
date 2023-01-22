@@ -3,6 +3,8 @@ import React, { PropsWithChildren } from 'react'
 import { Surface, TouchableRipple } from 'react-native-paper'
 import { StyleProp, StyleSheet, ViewStyle } from 'react-native'
 
+export const LIST_ITEM_MARGIN_V = 6
+
 type Props = {
   style?: StyleProp<ViewStyle>
   onPress?: () => void
@@ -18,9 +20,11 @@ export const ListItemWrapper = ({ style, onPress, children }: Props) => {
 
 const styles = StyleSheet.create({
   surface: {
+    flex: 1,
+
     padding: 12,
 
-    marginVertical: 6,
+    marginVertical: LIST_ITEM_MARGIN_V,
     marginHorizontal: SCREEN_PADDING_H,
 
     borderRadius: 8,

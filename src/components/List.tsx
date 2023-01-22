@@ -1,10 +1,11 @@
 import React from 'react'
+import { SCREEN_PADDING_V, LIST_ITEM_MARGIN_V } from '@components'
 import {
   FlatList,
   Dimensions,
+  StyleSheet,
   FlatListProps,
   ListRenderItem,
-  StyleSheet,
 } from 'react-native'
 
 const windowHeight = Dimensions.get('window').height
@@ -36,6 +37,7 @@ export const List = <T,>({
       initialNumToRender={initialNumToRender}
       getItemLayout={getItemLayout}
       numColumns={numColumns}
+      style={styles.list}
       {...props}
       contentContainerStyle={
         props.data.length ? props.contentContainerStyle : styles.emptyList
@@ -45,6 +47,10 @@ export const List = <T,>({
 }
 
 const styles = StyleSheet.create({
+  list: {
+    paddingVertical: SCREEN_PADDING_V - LIST_ITEM_MARGIN_V,
+  },
+
   emptyList: {
     flex: 1,
 
